@@ -50,7 +50,7 @@ section.style.display = 'grid';
 section.style.gridTemplate = 'repeat(6, 50px) / repeat(16, 50px)';
 
 /* для grid-area подхода */
-// section.style.gridTemplate = 'repeat(6, 50px) / repeat(16, 50px)';
+// section.style.gridTemplateAreas = 'repeat(6, 50px) / repeat(16, 50px)';
 
 section.style.gridGap = '15px';
 const keyboard = libraryKeys('EN');
