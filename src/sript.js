@@ -50,7 +50,7 @@ const keyboard = libraryKeys('EN');
 const rowKeys = [];
 keyboard.forEach((row) => {
   row.generateRowKeys().reduce((a, b) => section.appendChild(b), 0);
-  rowKeys.push(row.reduce((a, b) => (b.length === 1 ? `${a} ${b.className}` : repeat(b)), ''));
+  rowKeys.push(row.reduce((a, b) => (b.length === 1 ? `${a} ${b.className}` : `${a} ${repeat(b)}`), ''));
 });
 console.log(rowKeys);
 section.style.gridTemplateAreas = rowKeys;
