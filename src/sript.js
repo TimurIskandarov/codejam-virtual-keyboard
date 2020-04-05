@@ -30,17 +30,25 @@ const libraryKeys = (language) => {
   return keyboardKeys;
 };
 
-console.log("hello!");
+const repeat = (key) => {
+  let repeatClassName = '';
+  while (key.length !== 0) {
+    repeatClassName += `${key.className} `;
+  }
+  return repeatClassName;
+};
+
+console.log('hello!');
 const section = document.createElement('section');
 section.className = 'keyboard__wrapper';
 section.style.display = 'grid';
-section.style.gridTemplate = '50px / 50px';
-console.log(section);
+section.style.gridTemplate = 'repeat(16, 50px) / repeat(6, 50px)';
+section.style.gridGap = '15px';
 const keyboard = libraryKeys('EN');
 const rowKeys = [];
 keyboard.forEach((row) => {
-  row.reduce((a, b) => section.appendChild(b), 0);
-  rowKeys.push(row.reduce((a, b) => `${a} ${b.className} `, ' ')).trim();
+  row.generateRowKeys().reduce((a, b) => section.appendChild(b), 0);
+  rowKeys.push(row.reduce((a, b) => (b.length === 1 ? `${a} ${b.className}` : repeat(b)), '')).trim();
 });
 console.log(rowKeys);
 section.style.gridTemplateAreas = rowKeys;
