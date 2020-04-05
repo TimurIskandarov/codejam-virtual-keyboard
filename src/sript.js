@@ -32,8 +32,10 @@ const libraryKeys = (language) => {
 
 const repeat = (key) => {
   let repeatClassName = '';
-  while (key.length !== 0) {
+  let keyLength = key.length;
+  while (keyLength !== 0) {
     repeatClassName += `${key.className} `;
+    keyLength -= 1;
   }
   return repeatClassName;
 };
