@@ -2,10 +2,10 @@
 export class Key {
   constructor({ key, language }) {
     this.language = language;
-    this.baseSize = 50;
+    // this.baseSize = 50;
     // this.keySize();
-    this.style.width = `${this.baseSize}px`;
-    this.style.height = `${this.baseSize}px`;
+    // this.style.width = `${this.baseSize}px`;
+    // this.style.height = `${this.baseSize}px`;
     this.innerText = key.className;
     this.keyLength(this.innerText);
     this.style.backgroundColor = 'yellowgreen';
