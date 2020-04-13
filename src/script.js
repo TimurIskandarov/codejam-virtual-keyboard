@@ -47,10 +47,14 @@ const section = document.createElement('section');
 document.body.appendChild(section);
 section.className = 'keyboard__wrapper';
 section.style.display = 'grid';
-section.style.gridTemplate = 'repeat(6, 50px) / repeat(16, 50px)';
+// section.style.gridTemplate = 'repeat(6, 50px) / repeat(16, 50px)';
 
 /* для grid-area подхода */
+<<<<<<< HEAD
 // section.style.gridTemplate = 'repeat(6, 50px) / repeat(16, 50px)';
+=======
+section.style.gridTemplateAreas = 'repeat(6, 50px) / repeat(16, 50px)';
+>>>>>>> f7ce8fb... refactor: change grid-template-areas
 
 section.style.gridGap = '15px';
 const keyboard = libraryKeys('EN');
@@ -58,12 +62,16 @@ const rowKeys = [];
 keyboard.forEach((row) => {
   row.reduce((a, b) => section.appendChild(b.key), 0);
   /* для grid-area подхода */
-  rowKeys.push(row.reduce((a, b) => (b.length === 1 ? `${a} ${b.key.className}` : `${a} ${repeat(b)}`), ''));
+  rowKeys.push(row.reduce((a, b) => (b.length === 1 ? `${a} ${b.key.className}` : `${a} ${repeat(b)}`), '').trimLeft());
 });
 
 /* для grid-area подхода */
-console.log(rowKeys);
-// section.style.gridTemplateAreas = rowKeys;
+section.style.gridTemplateAreas = `'${rowKeys[0]}' 
+                                   '${rowKeys[1]}'
+                                   '${rowKeys[2]}'
+                                   '${rowKeys[3]}'
+                                   '${rowKeys[4]}'
+                                   '${rowKeys[5]}'`;
 
 // window.onload = function() {
 //     // Keys
