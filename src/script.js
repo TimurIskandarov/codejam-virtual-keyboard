@@ -1,5 +1,6 @@
-// eslint-disable-next-line import/extensions
-import { GenerateRowKeys } from './js/GenerateRowKeys';
+/* eslint-disable import/extensions */
+
+import GenerateRowKeys from './js/GenerateRowKeys.js';
 
 const libraryKeys = (language) => {
   let keyboardKeys = [];
@@ -45,8 +46,8 @@ const section = document.createElement('section');
 document.body.appendChild(section);
 section.className = 'keyboard__wrapper';
 section.style.display = 'grid';
-section.style.gridTemplateAreas = 'repeat(6, 50px) / repeat(16, 50px)';
-section.style.gridGap = '15px';
+section.style.gridTemplate = 'repeat(6, 50px) / repeat(16, 50px)';
+section.style.gridGap = '10px';
 const keyboard = libraryKeys('EN');
 const rowKeys = [];
 keyboard.forEach((row) => {
@@ -54,7 +55,7 @@ keyboard.forEach((row) => {
   rowKeys.push(row.reduce((a, b) => (b.length === 1 ? `${a} ${b.key.className}` : `${a} ${repeat(b)}`), '').trimLeft());
 });
 
-section.style.gridTemplateAreas = `'${rowKeys[0]}' 
+section.style.gridTemplateAreas = `'${rowKeys[0]}'
                                    '${rowKeys[1]}'
                                    '${rowKeys[2]}'
                                    '${rowKeys[3]}'

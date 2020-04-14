@@ -14,22 +14,20 @@ class Key {
       case ('CtrlRight'): { this.length = 2; break; }
       case ('Space'): { this.length = 5; break; }
       case ('Backspace'): { this.length = 3; break; }
+      case ('Enter'): { this.length = 3; break; }
       default: { this.length = 1; break; }
     }
   }
 
-
   init(keyName) {
     const div = document.createElement('div');
+    div.className = keyName;
     div.innerText = keyName;
+    // style
     div.style.backgroundColor = 'yellowgreen';
     div.style.color = 'black';
-    div.className = keyName;
-
-    /* для подхода через grid-area */
-    this.keyLength(keyName);
     div.style.gridArea = keyName;
-
+    this.keyLength(keyName);
     return div;
   }
 }
